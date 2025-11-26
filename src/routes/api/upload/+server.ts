@@ -1,6 +1,6 @@
-import fs from "fs";
+import fs from "node:fs";
 import path from "path";
-import { randomUUID } from "crypto";
+import { randomUUID } from "node:crypto";
 
 export async function POST({ request }) {
     const form = await request.formData();

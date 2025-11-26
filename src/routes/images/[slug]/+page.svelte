@@ -12,12 +12,16 @@
 
 <div class="bg-black text-white gap-1.5 flex flex-col items-center justify-center min-h-screen max-w-screen">
         <p class="text-xl font-bold bg-neutral-950 py-2 px-4 rounded-xl m-3">
-        {slug}'s Bilder
+        {slug}'s Media
         </p>
     <div class={"grid grid-cols-3 items-center justify-center gap-2"}>
         {#each images as img}
             <!-- svelte-ignore a11y_missing_attribute -->
-            <img src={img} class="border border-neutral-800 rounded-3xl"/>
+            {#if img.endsWith(".png")}
+                <img src={img} class="border border-neutral-800 rounded-3xl"/>
+                {:else}
+                <video controls={true} src={img} class="rounded-3xl p-0"><track kind="captions"></video>
+            {/if}
         {/each}
     </div>
 </div>
