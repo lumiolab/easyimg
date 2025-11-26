@@ -4,7 +4,7 @@ import { randomUUID } from "crypto";
 
 export async function POST({ request }) {
     const form = await request.formData();
-    const user = form.get("user"); // you pass this from frontend
+    const user = form.get("user");
     const file = form.get("file");
 
     if (!(file instanceof File)) {
